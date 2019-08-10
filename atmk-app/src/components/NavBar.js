@@ -95,6 +95,7 @@ export default function NavBar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+  // TODO: reafactor this
   const menuIcons = {
     0: <Home/>,
     1: <ViewQuilt/>,
@@ -120,10 +121,11 @@ export default function NavBar() {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <CssBaseline />
       <AppBar
         position="fixed"
+        style={{ background: '#2d98da' }}
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}

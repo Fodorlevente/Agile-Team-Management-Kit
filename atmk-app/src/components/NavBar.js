@@ -14,6 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import SlideBarList from './SlideBarList';
+import ImageAvatars from './NavBarAvatar';
 
 const drawerWidth = 240;
 
@@ -140,8 +141,14 @@ export default function NavBar() {
         </div>
         <Divider />
           <SlideBarList /> 
+          <ImageAvatars 
+            name="Fodor Levente"
+            img="https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg"
+          />
         <Divider />
+        
       </Drawer>
+      
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>

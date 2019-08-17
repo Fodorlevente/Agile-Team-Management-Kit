@@ -12,9 +12,11 @@ export default class ImageAvatars extends Component {
   
   render(){
 	return (
-		<Grid container justify="center" alignItems="center">
-		  <Avatar alt={this.props.name} src={this.props.img} />
-		</Grid>
+		<div style={{ padding: 20 }}>
+			<Grid container justify="center" alignItems="center">
+				<Avatar alt={this.props.name} src={this.props.img} />
+			</Grid>
+		</div>
 	  );
   };
   

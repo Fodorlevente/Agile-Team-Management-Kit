@@ -141,12 +141,11 @@ export default function NavBar() {
         </div>
         <Divider />
           <SlideBarList /> 
-          <ImageAvatars 
-            name="Fodor Levente"
-            img="https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg"
-          />
         <Divider />
-        
+          <ImageAvatars 
+              name="Fodor Levente"
+              img="https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg"
+          />
       </Drawer>
       
       <main className={classes.content}>

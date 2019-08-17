@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -12,19 +12,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 
-import Chat from '@material-ui/icons/Chat';
-import Settings from '@material-ui/icons/Settings';
-import Home from '@material-ui/icons/Home';
-import BarChart from '@material-ui/icons/BarChart';
-import Work from '@material-ui/icons/Work';
-import ViewQuilt from '@material-ui/icons/ViewQuilt';
-import Feedback from '@material-ui/icons/Feedback';
-import Group from '@material-ui/icons/Group';
-import Whatshot from '@material-ui/icons/Whatshot';
+import SlideBarList from './SlideBarList';
+import ImageAvatars from './NavBarAvatar';
+
+import Logo from "./img/logo.png";
 
 const drawerWidth = 240;
 
@@ -95,29 +87,12 @@ export default function NavBar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  // TODO: reafactor this
-  const menuIcons = {
-    0: <Home/>,
-    1: <ViewQuilt/>,
-    2: <BarChart/>,
-    3: <Work/>,
-    4: <Feedback/>,
-    5: <Chat/>,
-    6: <Whatshot/>,
-    7: <Settings/>,
-    8: <Group/>
-};
-
   function handleDrawerOpen() {
     setOpen(true);
   }
 
   function handleDrawerClose() {
     setOpen(false);
-  }
-
-  function setListItemIcon(index){
-      return menuIcons[index];
   }
 
   return (
@@ -167,19 +142,14 @@ export default function NavBar() {
           </IconButton>
         </div>
         <Divider />
-        <List> 
-          {['Overview', 'Dashboard', 'Metrics', 'Planning', 'Retrospective', 'Chat', 'Idea Box', 'Settings', 'Team'].map((text, index) => (
-            <ListItem button key={text}>
-              {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <Settings />}</ListItemIcon> */}
-              <ListItemIcon>
-                 {setListItemIcon(index)}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+          <SlideBarList /> 
         <Divider />
+          <ImageAvatars 
+              name="Fodor Levente"
+              img="https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg"
+          />
       </Drawer>
+      
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
@@ -205,6 +175,7 @@ export default function NavBar() {
           nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
+        <img src={Logo}></img>
       </main>
     </div>
   );

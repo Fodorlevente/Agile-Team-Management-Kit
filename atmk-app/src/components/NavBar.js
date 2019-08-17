@@ -16,6 +16,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import SlideBarList from './SlideBarList';
 import ImageAvatars from './NavBarAvatar';
 
+import Logo from "./img/logo.png";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -173,6 +175,7 @@ export default function NavBar() {
           nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
+        <img src={Logo}></img>
       </main>
     </div>
   );

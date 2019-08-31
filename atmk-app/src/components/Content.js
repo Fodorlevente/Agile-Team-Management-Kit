@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -81,11 +81,65 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    sidebar: () => <div>Overwiew</div>,
+    main: ( )=> <h2>Overwiew</h2> 
+  },
+  {
+    path: '/dashboard',
+    sidebar: () => <div>dashboard</div>,
+    main: ( )=> <h2>dashboard</h2> 
+  },
+  {
+    path: '/metrics',
+    sidebar: () => <div>metrics</div>,
+    main: ( )=> <h2>metrics</h2> 
+  },
+  {
+    path: '/planning',
+    sidebar: () => <div>planning</div>,
+    main: ( )=> <h2>planning</h2> 
+  },
+  {
+    path: '/profile',
+    sidebar: () => <div>profile</div>,
+    main: ( )=> <h2>profile</h2> 
+  },
+  {
+    path: '/retrospective',
+    sidebar: () => <div>retrospective</div>,
+    main: ( )=> <h2>retrospective</h2> 
+  },
+  {
+    path: '/messageboard',
+    sidebar: () => <div>messageboard</div>,
+    main: ( )=> <h2>messageboard</h2> 
+  },
+  {
+    path: '/ideabox',
+    sidebar: () => <div>ideabox</div>,
+    main: ( )=> <h2>ideabox</h2> 
+  },
+  {
+    path: '/settings',
+    sidebar: () => <div>settings</div>,
+    main: ( )=> <h2>settings</h2> 
+  },
+  {
+    path: '/team',
+    sidebar: () => <div>team</div>,
+    main: ( )=> <h2>team</h2> 
+  },
+]
 
-export default function NavBar() {
+export default function Content() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [path, setPath] = useState("/");
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -93,6 +147,11 @@ export default function NavBar() {
 
   function handleDrawerClose() {
     setOpen(false);
+  }
+
+  function getUrlRoute(originalUrl){
+    const tempUrl = originalUrl.split("/");
+    return String(tempUrl[tempUrl.length-1]) !== "" ? String(tempUrl[tempUrl.length-1]) : "/";
   }
 
   return (
@@ -142,7 +201,9 @@ export default function NavBar() {
           </IconButton>
         </div>
         <Divider />
-          <SlideBarList /> 
+        <div onClick={() => setPath(getUrlRoute(document.URL))}>
+          <SlideBarList path={routes} /> 
+        </div>
         <Divider />
           <ImageAvatars 
               name="Fodor Levente"
@@ -152,7 +213,8 @@ export default function NavBar() {
       
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>
+       
+        {/* <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
           facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
@@ -174,8 +236,8 @@ export default function NavBar() {
           tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
           nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-        <img src={Logo}></img>
+        </Typography> */}{path}
+        <img src={Logo} alt="basicPhoto"></img>
       </main>
     </div>
   );

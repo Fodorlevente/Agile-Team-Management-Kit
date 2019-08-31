@@ -3,6 +3,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
+import {
+  BrowserRouter as Router,
+  Link,
+} from 'react-router-dom';
 
 import Chat from '@material-ui/icons/Chat';
 import Settings from '@material-ui/icons/Settings';
@@ -33,17 +37,27 @@ function setListItemIcon(index){
     return menuIcons[index];
 }
 
+function addUniqueKey(text, itemName){
+    return `${itemName}${text}`;
+}
+
+function setLinkPath(linkObj, index){
+    return String(linkObj[index].path);
+}
+
 export default class SlideBarList extends Component{
      render(){
          return(
             <List> 
-            {['Overview', 'Dashboard', 'Metrics', 'Planning', 'Profile' ,'Retrospective', 'Chat', 'Idea Box', 'Settings', 'Team'].map((text, index) => (
-                <ListItem button key={text}>
-                    <ListItemIcon>
-                        {setListItemIcon(index)}
-                    </ListItemIcon>
-                <ListItemText primary={text} />
-                </ListItem>
+            {['Overview', 'Dashboard', 'Metrics', 'Planning', 'Profile' ,'Retrospective', 'Message Board', 'Idea Box', 'Settings', 'Team'].map((text, index) => (
+                <Router>
+                    <ListItem button key={addUniqueKey(text,'ListItem')} component={Link} to={setLinkPath(this.props.path, index)}>
+                        <ListItemIcon key={addUniqueKey(text,'ListItemIcon')}>
+                            {setListItemIcon(index)}
+                        </ListItemIcon>
+                    <ListItemText primary={text} key={addUniqueKey(text,'ListItemText')}/>
+                    </ListItem>                   
+                </Router>
                 ))}
             </List>
          );

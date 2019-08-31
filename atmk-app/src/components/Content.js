@@ -83,55 +83,34 @@ const useStyles = makeStyles(theme => ({
 
 const routes = [
   {
-    path: '/',
-    exact: true,
-    sidebar: () => <div>Overwiew</div>,
-    main: ( )=> <h2>Overwiew</h2> 
+    path: '/'
   },
   {
-    path: '/dashboard',
-    sidebar: () => <div>dashboard</div>,
-    main: ( )=> <h2>dashboard</h2> 
+    path: '/dashboard'
   },
   {
-    path: '/metrics',
-    sidebar: () => <div>metrics</div>,
-    main: ( )=> <h2>metrics</h2> 
+    path: '/metrics'
   },
   {
-    path: '/planning',
-    sidebar: () => <div>planning</div>,
-    main: ( )=> <h2>planning</h2> 
+    path: '/planning'
   },
   {
-    path: '/profile',
-    sidebar: () => <div>profile</div>,
-    main: ( )=> <h2>profile</h2> 
+    path: '/profile'
   },
   {
-    path: '/retrospective',
-    sidebar: () => <div>retrospective</div>,
-    main: ( )=> <h2>retrospective</h2> 
+    path: '/retrospective'
   },
   {
-    path: '/messageboard',
-    sidebar: () => <div>messageboard</div>,
-    main: ( )=> <h2>messageboard</h2> 
+    path: '/messageboard'
   },
   {
-    path: '/ideabox',
-    sidebar: () => <div>ideabox</div>,
-    main: ( )=> <h2>ideabox</h2> 
+    path: '/ideabox' 
   },
   {
-    path: '/settings',
-    sidebar: () => <div>settings</div>,
-    main: ( )=> <h2>settings</h2> 
+    path: '/settings'
   },
   {
-    path: '/team',
-    sidebar: () => <div>team</div>,
-    main: ( )=> <h2>team</h2> 
+    path: '/team'
   },
 ]
 
@@ -213,30 +192,7 @@ export default function Content() {
       
       <main className={classes.content}>
         <div className={classes.toolbar} />
-       
-        {/* <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-          facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-          tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-          consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-          vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography> */}{path}
+        {path}
         <img src={Logo} alt="basicPhoto"></img>
       </main>
     </div>
